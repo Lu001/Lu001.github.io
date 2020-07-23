@@ -17,16 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>归档 | Hexo</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://lu001.github.io/archives/index.html">
+  <title>集合 JVM | Hexo</title>
+  <meta name="description" content="集合Linkedlist和ArrayList有什么区别？ArrayList底层是数组，所以他的查询较快，删除和更新慢。其中，添加元素超过数组长度，会进行扩容。扩容实现：新建数组，长度扩容为原数组长度1.5倍，最后将原数组数据复制到当前数组。LinkedList底层是双向链表，所以他删除和更新快，查询慢。其中，他可以从头尾开始查询，加快了查询的效率。因为他除了要存储数据，还有指向。所以比较Array">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集合 JVM">
+<meta property="og:url" content="https://lu001.github.io/2020/07/23/JAVA%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="集合Linkedlist和ArrayList有什么区别？ArrayList底层是数组，所以他的查询较快，删除和更新慢。其中，添加元素超过数组长度，会进行扩容。扩容实现：新建数组，长度扩容为原数组长度1.5倍，最后将原数组数据复制到当前数组。LinkedList底层是双向链表，所以他删除和更新快，查询慢。其中，他可以从头尾开始查询，加快了查询的效率。因为他除了要存储数据，还有指向。所以比较Array">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-23T07:47:00.000Z">
+<meta property="article:modified_time" content="2020-07-23T09:35:04.579Z">
 <meta property="article:author" content="dalu">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://lu001.github.io/archives/index.html">
+  <link rel="canonical" href="https://lu001.github.io/2020/07/23/JAVA%E5%9F%BA%E7%A1%80/index.html">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -251,68 +255,120 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档</h1>
-	      <p class="text-muted">共 3 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-JAVA基础" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      集合 JVM
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2020" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2020
-            </a>
-            <!-- <a href="/Lu001.github.io/archives/2020" class="archive-year">2020</a> -->
-          </h3>
-        </div>
-        <div id="collapse2020" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2020">
-        <div class="panel-body">
-          <div class="collection">
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/Lu001.github.io/2020/07/23/JAVA%E5%9F%BA%E7%A1%80/" class="article-date">
+	  <time datetime="2020-07-23T07:47:00.000Z" itemprop="datePublished">2020-07-23</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/23/JAVA%E5%9F%BA%E7%A1%80/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 867(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h2 id="Linkedlist和ArrayList有什么区别？"><a href="#Linkedlist和ArrayList有什么区别？" class="headerlink" title="Linkedlist和ArrayList有什么区别？"></a>Linkedlist和ArrayList有什么区别？</h2><p>ArrayList底层是数组，所以他的查询较快，删除和更新慢。<br>其中，添加元素超过数组长度，会进行扩容。<br>扩容实现：新建数组，长度扩容为原数组长度1.5倍，最后将原数组数据复制到当前数组。<br>LinkedList底层是双向链表，所以他删除和更新快，查询慢。<br>其中，他可以从头尾开始查询，加快了查询的效率。<br>因为他除了要存储数据，还有指向。所以比较ArrayList更加占用空间。</p>
+<h2 id="HashMap是如何实现的？"><a href="#HashMap是如何实现的？" class="headerlink" title="HashMap是如何实现的？"></a>HashMap是如何实现的？</h2><p>HashMap底层是数组+（链表和红黑树）集数组和链表的优点，但是会消耗更多空间。<br>首先，HashMap通过计算键的hashcode和数组长度取模确定当前Entry所在数组位置。这么做是因为key值是唯一的，顺序存储的话，遍历HashMap效率低。  但紧接着，会出现Hash冲突。HashMap中将hash一致的值用链表相连接，当链表超过8时，会形成红黑树。<br>其中，HashMap中有初始化容量和负载因子来决定HashMap的容量。当超过该容量时，HashMap会进行rehash，性能消耗大，又为了空间不被浪费。一般设置负载因子0.75，初始化容量16。<br>HashMap选择使用Entry来存储键值对，是因为Entry相当于JavaBean，方便我们后续对键值对的操作。  </p>
+<h2 id="ConcurrentHashMap他的底层是如何实现的？"><a href="#ConcurrentHashMap他的底层是如何实现的？" class="headerlink" title="ConcurrentHashMap他的底层是如何实现的？"></a>ConcurrentHashMap他的底层是如何实现的？</h2><p>ConcurrentHashMap是安全的HashMap。<br>jdk1.8后通过分段加锁数组每一个位置用CAS锁锁住。<br>同一个时间，CAS只能一个线程进行执行，其他线程执行失败<br>同一个位置是串行化加锁，不同位置的可以并发操作CAS</p>
+<h1 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h1><h2 id="内存模型以及分区，需要详细到每个区放什么？"><a href="#内存模型以及分区，需要详细到每个区放什么？" class="headerlink" title="内存模型以及分区，需要详细到每个区放什么？"></a>内存模型以及分区，需要详细到每个区放什么？</h2><p>栈：引用 本地方法栈 堆：放入实例化的对象  方法区：类信息以及运行时常量池。其中，堆中划分为年轻代和老年代 其中，年轻代中有Eden区 from区和to区</p>
+<h2 id="GC的三种收集方法：标记清除、标记整理、复制算法的原理与特点？"><a href="#GC的三种收集方法：标记清除、标记整理、复制算法的原理与特点？" class="headerlink" title="GC的三种收集方法：标记清除、标记整理、复制算法的原理与特点？"></a>GC的三种收集方法：标记清除、标记整理、复制算法的原理与特点？</h2><p>复制算法：第一次清理，Eden区和from区幸存的进入to区。紧接着，to区和from区区域进行交换。这样不会产生内存碎片，但是当年轻代中类信息存活率高的话，交换时效率低下。<br>标记清除：通过GC Root对没有被清理过的进行标记。下一次对未标记的进行清理。会有内存碎片，但是只扫描两次效率高。<br>标记整理：在标记清除的基础上，进行整理，将标记好的移到一起，减小内存碎片的产生。</p>
+<h2 id="GC收集器有些？CMS收集器与G1收集器的特点"><a href="#GC收集器有些？CMS收集器与G1收集器的特点" class="headerlink" title="GC收集器有些？CMS收集器与G1收集器的特点?"></a>GC收集器有些？CMS收集器与G1收集器的特点?</h2><p>CMS G1</p>
+<h2 id="聊聊JVM的内存模型JMM？"><a href="#聊聊JVM的内存模型JMM？" class="headerlink" title="聊聊JVM的内存模型JMM？"></a>聊聊JVM的内存模型JMM？</h2><p>加载和读取 存储和写入 使用和赋值 加锁和解锁 </p>
+<h2 id="类加载过程？"><a href="#类加载过程？" class="headerlink" title="类加载过程？"></a>类加载过程？</h2><p>.class文件通过类加载器（boot，extr，application）创建class对象，class对象和静态变量存储在方法区中。因为方法区在jdk1.8之前是永久代演变而来的，所以存放的都是不被垃圾回收的东西。</p>
+<h2 id="JVM如何处理基本数据类型和引用数据类型，静态变量？"><a href="#JVM如何处理基本数据类型和引用数据类型，静态变量？" class="headerlink" title="JVM如何处理基本数据类型和引用数据类型，静态变量？"></a>JVM如何处理基本数据类型和引用数据类型，静态变量？</h2><p>基本数据类型和引用数据类型都在栈中，静态变量存放在方法区中。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Lu001" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/Lu001.github.io/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Lu001" target="_blank"><span class="text-dark">Da lu</span><small class="ml-1x">Java学习博客</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
     
-    
-<a href="/Lu001.github.io/2020/07/23/JAVA%E5%9F%BA%E7%A1%80/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-23T07:47:00.000Z" itemprop="datePublished">2020-07-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 集合 JVM
-</a>
+  <section id="comments">
+  	
+  </section>
 
 
   
-    
-    
-    
-<a href="/Lu001.github.io/2020/07/23/Springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-23T06:50:00.000Z" itemprop="datePublished">2020-07-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Spring全家桶
-</a>
+</div>
 
-
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
   
+  <ul class="pager pull-left">
     
     
+    <li class="next">
+      <a href="/Lu001.github.io/2020/07/23/Springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F/" title="Spring全家桶"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
-<a href="/Lu001.github.io/2020/07/21/Java%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-21T15:18:00.000Z" itemprop="datePublished">2020-07-21</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Java核心问题
-</a>
-
-
+    
+  </ul>
   
   
-    </div></div></div></section>
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
   
 
-	    </div>
-  	</article>
-  	 	
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -374,6 +430,12 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+   
+
+
+
+
+   
 
 
 
