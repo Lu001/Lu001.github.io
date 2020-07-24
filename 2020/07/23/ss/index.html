@@ -17,16 +17,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>归档 | Hexo</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="https://lu001.github.io/archives/index.html">
+  <title>J2EE | Hexo</title>
+  <meta name="description" content="一、BIO NIO AIO有什么区别？12345BIO表示同步阻塞式IO，服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，当然可以通过线程池机制改善。NIO表示同步非阻塞IO，服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I&#x2F;O请求时才启动一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="J2EE">
+<meta property="og:url" content="https://lu001.github.io/2020/07/23/ss/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="一、BIO NIO AIO有什么区别？12345BIO表示同步阻塞式IO，服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，当然可以通过线程池机制改善。NIO表示同步非阻塞IO，服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I&#x2F;O请求时才启动一个">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qdx5jexia.bkt.clouddn.com/hh.png">
+<meta property="article:published_time" content="2020-07-23T14:12:00.000Z">
+<meta property="article:modified_time" content="2020-07-24T02:34:50.677Z">
 <meta property="article:author" content="dalu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qdx5jexia.bkt.clouddn.com/hh.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://lu001.github.io/archives/index.html">
+  <link rel="canonical" href="https://lu001.github.io/2020/07/23/ss/index.html">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -281,98 +287,127 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档</h1>
-	      <p class="text-muted">共 6 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-ss" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      J2EE
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2020" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2020
-            </a>
-            <!-- <a href="/Lu001.github.io/archives/2020" class="archive-year">2020</a> -->
-          </h3>
-        </div>
-        <div id="collapse2020" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2020">
-        <div class="panel-body">
-          <div class="collection">
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/Lu001.github.io/2020/07/23/ss/" class="article-date">
+	  <time datetime="2020-07-23T14:12:00.000Z" itemprop="datePublished">2020-07-23</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/23/ss/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 979(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h4 id="一、BIO-NIO-AIO有什么区别？"><a href="#一、BIO-NIO-AIO有什么区别？" class="headerlink" title="一、BIO NIO AIO有什么区别？"></a>一、BIO NIO AIO有什么区别？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BIO表示同步阻塞式IO，服务器实现模式为一个连接一个线程，即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销，当然可以通过线程池机制改善。</span><br><span class="line"></span><br><span class="line">NIO表示同步非阻塞IO，服务器实现模式为一个请求一个线程，即客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I&#x2F;O请求时才启动一个线程进行处理。</span><br><span class="line"></span><br><span class="line">AIO表示异步非阻塞IO，服务器实现模式为一个有效请求一个线程，客户端的I&#x2F;O请求都是由操作系统先完成IO操作后再通知服务器应用来启动线程进行处理。</span><br></pre></td></tr></table></figure>
+
+<p>应用场景：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BIO适用于连接数目比较小且固定的架构，该方式对服务器资源要求比较高，JDK 1.4以前的唯一选择。</span><br><span class="line">    </span><br><span class="line">NIO适用于连接数目多且连接比较短（轻操作）的架构，如聊天服务器，编程复杂，JDK 1.4开始支持，如在Netty框架中使用。</span><br><span class="line">   </span><br><span class="line">AIO适用于连接数目多且连接比较长（重操作）的架构，如相册服务器，充分调用操作系统参与并发操作，编程复杂，JDK 1.7开始支持。</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、Tomcat如何调优？"><a href="#二、Tomcat如何调优？" class="headerlink" title="二、Tomcat如何调优？"></a>二、Tomcat如何调优？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Tomcat调优包括：Tomcat自身优化、Linux内核优化、JVM优化</span><br><span class="line"></span><br><span class="line">详见：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;whx7762&#x2F;p&#x2F;9290242.html</span><br></pre></td></tr></table></figure>
+
+<h4 id="三、Tomcat容器是如何创建servlet类实例？用到了什么原理？"><a href="#三、Tomcat容器是如何创建servlet类实例？用到了什么原理？" class="headerlink" title="三、Tomcat容器是如何创建servlet类实例？用到了什么原理？"></a>三、Tomcat容器是如何创建servlet类实例？用到了什么原理？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当容器启动时，会读取在 webapps 目录下所有的 web 应用中的 web.xml 文 件，然后对 xml 文件进行解析，并读取 servlet 注册信息。然后，将每个应用中注册的 servlet 类都进行加载， 并通过反射的方式实例化。（有时候也是在第一次请求时实例化）在 servlet 注册时加上如果为正数，则在 一开始就实例化，如果不写或为负数，则第一次请求实例化。</span><br></pre></td></tr></table></figure>
+
+<h4 id="四、代理模式Java中有哪些应用场景？动态代理和静态代理有什么区别？"><a href="#四、代理模式Java中有哪些应用场景？动态代理和静态代理有什么区别？" class="headerlink" title="四、代理模式Java中有哪些应用场景？动态代理和静态代理有什么区别？"></a>四、代理模式Java中有哪些应用场景？动态代理和静态代理有什么区别？</h4><p>什么是代理模式呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我很忙，忙的没空理你，那你要找我呢就先找我的代理人吧，那代理人总要知道被代理人能做哪些事情不能做哪些事情吧，那就是两个人具备同一个接口，代理人虽然不能干活，但是被代理的人能干活呀。</span><br><span class="line">比如西门庆找潘金莲，那潘金莲不好意思答复呀，咋办，找那个王婆做代理</span><br></pre></td></tr></table></figure>
+
+<p>应用场景：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">（1）当我们想要隐藏某个类时，可以为其提供代理类</span><br><span class="line"></span><br><span class="line">（2）当一个类需要对不同的调用者提供不同的调用权限时，可以使用代理类来实现（代理类不一定只有一个，我们可以建立多个代理类来实现，也可以在一个代理类中金进行权限判断来进行不同权限的功能调用）</span><br><span class="line"></span><br><span class="line">（3）当我们要扩展某个类的某个功能时，可以使用代理模式，在代理类中进行简单扩展（只针对简单扩展，可在引用委托类的语句之前与之后进行）</span><br><span class="line"></span><br><span class="line">　　代理模式虽然实现了调用者与委托类之间的强耦合，但是却增加了代理类与委托类之间的强耦合（在代理类中显式调用委托类的方法），而且增加代理类之后明显会增加处理时间，拖慢处理时间。</span><br></pre></td></tr></table></figure>
+
+<p>动态代理和静态代理有什么区别？<br><img src="http://qdx5jexia.bkt.clouddn.com/hh.png" alt="动态代理和静态代理"></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Lu001" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/Lu001.github.io/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Lu001" target="_blank"><span class="text-dark">Da lu</span><small class="ml-1x">Java学习博客</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
     
-    
-<a href="/Lu001.github.io/2020/07/23/ss/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-23T14:12:00.000Z" itemprop="datePublished">2020-07-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> J2EE
-</a>
+  <section id="comments">
+  	
+  </section>
 
 
   
-    
-    
-    
-<a href="/Lu001.github.io/2020/07/23/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-23T10:46:24.000Z" itemprop="datePublished">2020-07-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 数据库
-</a>
+</div>
 
-
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
   
+  <ul class="pager pull-left">
     
     
-    
-<a href="/Lu001.github.io/2020/07/23/%E8%81%8A%E8%81%8A%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-23T09:37:23.000Z" itemprop="datePublished">2020-07-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 聊聊并发编程那些事儿
-</a>
-
-
-  
+    <li class="next">
+      <a href="/Lu001.github.io/2020/07/23/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
     
-    
-<a href="/Lu001.github.io/2020/07/23/JAVA%E5%9F%BA%E7%A1%80/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-23T07:47:00.000Z" itemprop="datePublished">2020-07-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 集合 JVM
-</a>
-
-
-  
-    
-    
-    
-<a href="/Lu001.github.io/2020/07/23/Springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-23T06:50:00.000Z" itemprop="datePublished">2020-07-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Spring全家桶
-</a>
-
-
-  
-    
-    
-    
-<a href="/Lu001.github.io/2020/07/21/Java%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-07-21T15:18:00.000Z" itemprop="datePublished">2020-07-21</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Java核心问题
-</a>
-
-
+  </ul>
   
   
-    </div></div></div></section>
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
   
 
-	    </div>
-  	</article>
-  	 	
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -434,6 +469,12 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+   
+
+
+
+
+   
 
 
 
