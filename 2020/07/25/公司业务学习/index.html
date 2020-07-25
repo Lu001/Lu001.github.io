@@ -17,22 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>报表优化之定时器 | Hexo</title>
-  <meta name="description" content="业务需求:有很多条数据查询，性能较差.数据三个月更新一次。实现：通过设置定时器优化。  触发器设置时间 工作内容写在Job中 找到调度器进行对工作进行调度 sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual">
+  <title>新利公司业务学习 | Hexo</title>
+  <meta name="description" content="（其中以我为参照物）质押式回购银行间 我抵押债券 你给钱。买断式回购银行间 我给债券 你收债券并给钱。分销买入银行 对 国家  我给你钱 你给我债券同业存单银行间 我给钱，你给存单？ 因为银行间利息不同。同业拆借银行间 你钱多，我向你借钱我拆入，你拆出 短期归还。因为 金融机构一些收大于支 一些支大于收所以出现这种情况债券借贷我是债券持有方，暂时借给你。在借给你的时候，我仍然拥有获取债券的利息。并">
 <meta property="og:type" content="article">
-<meta property="og:title" content="报表优化之定时器">
-<meta property="og:url" content="https://lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/index.html">
+<meta property="og:title" content="新利公司业务学习">
+<meta property="og:url" content="https://lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="业务需求:有很多条数据查询，性能较差.数据三个月更新一次。实现：通过设置定时器优化。  触发器设置时间 工作内容写在Job中 找到调度器进行对工作进行调度 sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual">
+<meta property="og:description" content="（其中以我为参照物）质押式回购银行间 我抵押债券 你给钱。买断式回购银行间 我给债券 你收债券并给钱。分销买入银行 对 国家  我给你钱 你给我债券同业存单银行间 我给钱，你给存单？ 因为银行间利息不同。同业拆借银行间 你钱多，我向你借钱我拆入，你拆出 短期归还。因为 金融机构一些收大于支 一些支大于收所以出现这种情况债券借贷我是债券持有方，暂时借给你。在借给你的时候，我仍然拥有获取债券的利息。并">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qdx5jexia.bkt.clouddn.com/dsq.png">
-<meta property="article:published_time" content="2020-07-24T03:10:00.000Z">
-<meta property="article:modified_time" content="2020-07-25T03:45:44.727Z">
+<meta property="article:published_time" content="2020-07-25T03:36:00.000Z">
+<meta property="article:modified_time" content="2020-07-25T03:43:13.804Z">
 <meta property="article:author" content="dalu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qdx5jexia.bkt.clouddn.com/dsq.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/index.html">
+  <link rel="canonical" href="https://lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1%E5%AD%A6%E4%B9%A0/index.html">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -295,14 +293,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-报表优化之定时器" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-公司业务学习" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      报表优化之定时器
+      新利公司业务学习
     </h1>
   
 
@@ -310,8 +308,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/Lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/" class="article-date">
-	  <time datetime="2020-07-24T03:10:00.000Z" itemprop="datePublished">2020-07-24</time>
+	<a href="/Lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1%E5%AD%A6%E4%B9%A0/" class="article-date">
+	  <time datetime="2020-07-25T03:36:00.000Z" itemprop="datePublished">2020-07-25</time>
 	</a>
 </span>
         
@@ -324,10 +322,10 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1%E5%AD%A6%E4%B9%A0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 99(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 367(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -337,13 +335,8 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>业务需求</strong>:有很多条数据查询，性能较差.数据三个月更新一次。<br>实现：通过设置定时器优化。</p>
-<ul>
-<li>触发器设置时间</li>
-<li>工作内容写在Job中</li>
-<li>找到调度器进行对工作进行调度</li>
-<li>sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual<br><img src="http://qdx5jexia.bkt.clouddn.com/dsq.png" alt></li>
-</ul>
+        <p>（其中以我为参照物）<br><strong>质押式回购</strong><br>银行间 我抵押债券 你给钱。<br><strong>买断式回购</strong><br>银行间 我给债券 你收债券并给钱。<br><strong>分销买入</strong><br>银行 对 国家  我给你钱 你给我债券<br><strong>同业存单</strong><br>银行间 我给钱，你给存单？ 因为银行间利息不同。<br><strong>同业拆借</strong><br>银行间 你钱多，我向你借钱我拆入，你拆出 短期归还。因为 金融机构一些收大于支 一些支大于收所以出现这种情况<br><strong>债券借贷</strong><br>我是债券持有方，暂时借给你。在借给你的时候，我仍然拥有获取债券的利息。并且获取借贷费用<br>你可以拿到债券卖出，然后期限一到用低的价格买进来。<br><strong>现券买卖</strong><br>现券买卖是指交易双方以约定的价格在当日或次日转让债券所有权的交易行为。  </p>
+<p>因为一些小银行需要资金周转，所以央行会提供一些优惠的利率给这些小银行。因为小银行能够活跃经济的发展。<br><strong>常备借贷</strong><br>小银行 对 央行 我向你借钱。 你给我低一点的利率。<br><strong>支农再贷款</strong><br>小银行 对 央行 我向你借钱。 凭证：散户贷款凭证<br><strong>支小再贷款</strong><br>中央给小银行 小银行再给老百姓 所以叫再贷款<br>线上和线下的区别？  </p>
 
       
     </div>
@@ -392,12 +385,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/Lu001.github.io/2020/07/24/%E4%B8%80%E4%BA%9B%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%B0%8F%E7%9F%A5%E8%AF%86/" title="一些中间件的小知识"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/Lu001.github.io/2020/07/25/vaWeb%E7%A9%B6%E7%AB%9F%E6%9C%89%E5%95%A5%E4%B8%9C%E8%A5%BF%E9%9D%A2%E8%AF%95/" title="JavaWeb究竟有啥东西面试"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/Lu001.github.io/2020/07/23/ss/" title="J2EE容器究竟有什么"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/Lu001.github.io/2020/07/25/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0%EF%BC%8C%E8%8F%9C%E7%9A%84%E4%B8%80%E6%89%B9/" title="春招面试复习，菜的一批"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

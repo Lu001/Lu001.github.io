@@ -17,22 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>报表优化之定时器 | Hexo</title>
-  <meta name="description" content="业务需求:有很多条数据查询，性能较差.数据三个月更新一次。实现：通过设置定时器优化。  触发器设置时间 工作内容写在Job中 找到调度器进行对工作进行调度 sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual">
+  <title>并发编程初次理解 | Hexo</title>
+  <meta name="description" content="并发编程问题？synchronized 对象和类加锁，加锁里面的代码先执行完，锁才会释放。底层原理？一个对象对应monitorenter，其中有一个计数器，一个线程进来计数器值加1线程二遇到计数器为1加锁失败，等待执行完后执行monitorexit 释放锁 计数器-1 CAS理解 先比较再设置多线程访问同一个数据用synchronize加锁，串行化效率低下AtomicInteger i  &#x3D; ne">
 <meta property="og:type" content="article">
-<meta property="og:title" content="报表优化之定时器">
-<meta property="og:url" content="https://lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/index.html">
+<meta property="og:title" content="并发编程初次理解">
+<meta property="og:url" content="https://lu001.github.io/2020/07/25/%E5%8F%91%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AC%A1%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="业务需求:有很多条数据查询，性能较差.数据三个月更新一次。实现：通过设置定时器优化。  触发器设置时间 工作内容写在Job中 找到调度器进行对工作进行调度 sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual">
+<meta property="og:description" content="并发编程问题？synchronized 对象和类加锁，加锁里面的代码先执行完，锁才会释放。底层原理？一个对象对应monitorenter，其中有一个计数器，一个线程进来计数器值加1线程二遇到计数器为1加锁失败，等待执行完后执行monitorexit 释放锁 计数器-1 CAS理解 先比较再设置多线程访问同一个数据用synchronize加锁，串行化效率低下AtomicInteger i  &#x3D; ne">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qdx5jexia.bkt.clouddn.com/dsq.png">
-<meta property="article:published_time" content="2020-07-24T03:10:00.000Z">
-<meta property="article:modified_time" content="2020-07-25T03:45:44.727Z">
+<meta property="article:published_time" content="2020-07-25T03:39:00.000Z">
+<meta property="article:modified_time" content="2020-07-25T03:43:01.048Z">
 <meta property="article:author" content="dalu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qdx5jexia.bkt.clouddn.com/dsq.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/index.html">
+  <link rel="canonical" href="https://lu001.github.io/2020/07/25/%E5%8F%91%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AC%A1%E7%90%86%E8%A7%A3/index.html">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -295,14 +293,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-报表优化之定时器" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-发编程初次理解" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      报表优化之定时器
+      并发编程初次理解
     </h1>
   
 
@@ -310,40 +308,42 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/Lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/" class="article-date">
-	  <time datetime="2020-07-24T03:10:00.000Z" itemprop="datePublished">2020-07-24</time>
+	<a href="/Lu001.github.io/2020/07/25/%E5%8F%91%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AC%A1%E7%90%86%E8%A7%A3/" class="article-date">
+	  <time datetime="2020-07-25T03:39:00.000Z" itemprop="datePublished">2020-07-25</time>
 	</a>
 </span>
         
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/Lu001.github.io/categories/%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1/">公司业务</a>
-  </span>
-
         
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/25/%E5%8F%91%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AC%A1%E7%90%86%E8%A7%A3/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 99(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>业务需求</strong>:有很多条数据查询，性能较差.数据三个月更新一次。<br>实现：通过设置定时器优化。</p>
-<ul>
-<li>触发器设置时间</li>
-<li>工作内容写在Job中</li>
-<li>找到调度器进行对工作进行调度</li>
-<li>sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual<br><img src="http://qdx5jexia.bkt.clouddn.com/dsq.png" alt></li>
-</ul>
+        <p>并发编程问题？<br>synchronized 对象和类加锁，加锁里面的代码先执行完，锁才会释放。<br>底层原理？<br>一个对象对应monitorenter，其中有一个计数器，一个线程进来计数器值加1<br>线程二遇到计数器为1加锁失败，等待<br>执行完后执行monitorexit 释放锁 计数器-1</p>
+<p>CAS理解 先比较再设置<br>多线程访问同一个数据用synchronize加锁，串行化效率低下<br>AtomicInteger i  = new AtomicInteger(0);<br>compare:先对比旧值，还是0设置1<br>只有一个线程执行CAS操作，因为CAS是原子操作</p>
+<p>ConcurrentHashMap:jdk1.8后通过分段加锁数组每一个位置用CAS锁锁住。<br>同一个时间，CAS只能一个线程进行执行，其他线程执行失败<br>同一个位置是串行化加锁，不同位置的可以并发操作CAS</p>
+<p>AQS Abstract Queue synchronized 抽象队列同步  非公平锁 公平锁：进入等待队列<br>加锁 state = 1 释放锁 state = 0<br>多线程过来，尝试对同一个对象进行加锁<br>ReentrantLock lock = new ReentrantLock<br>加锁失败，进入等待队列，释放锁之后唤醒队头 </p>
+<p>线程池工作原理<br>corePoolSize 线程数量是否小于coreSize，小于创建线程 直到创建指定数量 。任务再进来进行阻塞<br>LinkedBorderQueue</p>
+<p>线程池的核心配置参数 ， 平时怎么用<br>newFixedThreadPool（3）<br>代表线程池的类是ThreadPoolExecutor<br>newThread ：线程池中的最大线程数量<br>超过线程池线程的数量的任务放入队列中<br>队列满了之后，因为线程池处理线程太慢 最多创建maximumPoolSize个额外线程<br>并设置额外线程空闲时间<br>一样大 队列永远不会满</p>
+<p>如果在线程池中使用无界阻塞队列会发生什么问题？<br>线程处理任务速度慢，队列变得很大的时候，内存会飙升 导致出现OOM内存溢出</p>
+<p>线程池的队列满了之后，会发生什么事情？<br>有界队列避免了内存溢出<br>会导致线程太多，cpu负载高，内存耗尽<br>自定义拒绝策略 把任务信息持久化写入磁盘，后台专门启动一个线程，等待线程池负载降低，再去读取</p>
+<p>如果线上机器突然宕机，线程池的阻塞队列中的请求怎么办？<br>线程池中的任务会丢失<br>先去数据库更新任务状态<br>重启，重新提交</p>
+<p>JAVA模型的内存理解<br>read load use assign store write<br>主内存中read读取数据 通过load加载到工作内存中 通过线程use数据 再将算好的数据assign到工作内存中 再进行store尝试去主内存写，主内存写write数据 </p>
+<p>java内存模型原子性 有序性 可见性<br>可见性：不可见：线程1对数据更新 线程2一段时间读取没变 。 可见性：更新完之后，强制线程2重新读取<br>原子性：线程1进行 线程2不能进行</p>
+<p>volatile关键字的原理？<br>解决可见性 有序性<br>具备可见性 因为加上了volatile，将修改的数据刷到了主存中，同时会对线程2中的值进行失效，线程2再次读的时候 让其他线程看到值的变化</p>
+<p>你知道指令重排以及hanppens-before原则吗？<br>如何避免指令重排，利用hanppens-before原则<br>不具备有序性 线程1没有准备好资源 线程2直接执行<br>1.程序次序规则：书写前面的比后面先操作<br>2.锁定规则：一个unlock后面跟lock<br>3volatile变量规则：对一个变量写操作先于读操作 先写再读<br>4传递规则。。。。。</p>
+<p>volatile底层是如何基于内存屏障保证可见性和有序性？<br>不能保证原子性<br>引入锁机制 对数据进行写<br>内存屏障？<br>保证可见性？jvm发送一条lock前缀指令将值刷新到主存，嗅探机制缓存变量被修改直接失效，强制重新加载一次</p>
 
       
     </div>
@@ -391,13 +391,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/Lu001.github.io/2020/07/24/%E4%B8%80%E4%BA%9B%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%B0%8F%E7%9F%A5%E8%AF%86/" title="一些中间件的小知识"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/Lu001.github.io/2020/07/23/ss/" title="J2EE容器究竟有什么"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/Lu001.github.io/2020/07/25/vaWeb%E7%A9%B6%E7%AB%9F%E6%9C%89%E5%95%A5%E4%B8%9C%E8%A5%BF%E9%9D%A2%E8%AF%95/" title="JavaWeb究竟有啥东西面试"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

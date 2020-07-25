@@ -17,22 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>报表优化之定时器 | Hexo</title>
-  <meta name="description" content="业务需求:有很多条数据查询，性能较差.数据三个月更新一次。实现：通过设置定时器优化。  触发器设置时间 工作内容写在Job中 找到调度器进行对工作进行调度 sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual">
+  <title>公司没任务，学习一波Oracle | Hexo</title>
+  <meta name="description" content="注释 –  &#x2F;**&#x2F;1 如何去除重复的数据  distinct2 字符串连接查询 select ‘员工编号是’ || e.empno from emp e3.支持四则运算   限定查询因为用or的话，有多个需要满足的条件会很麻烦 所以可以使用in来查询   单行函数什么是伪表？字符串之间的连接最好使用 ||因为到了别的数据库中就不兼容concat 不能查到下个星期几的日期?用阿拉伯数字来代替 字符">
 <meta property="og:type" content="article">
-<meta property="og:title" content="报表优化之定时器">
-<meta property="og:url" content="https://lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/index.html">
+<meta property="og:title" content="公司没任务，学习一波Oracle">
+<meta property="og:url" content="https://lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E6%B2%A1%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%AD%A6%E4%B9%A0%E4%B8%80%E6%B3%A2Oracle/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="业务需求:有很多条数据查询，性能较差.数据三个月更新一次。实现：通过设置定时器优化。  触发器设置时间 工作内容写在Job中 找到调度器进行对工作进行调度 sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual">
+<meta property="og:description" content="注释 –  &#x2F;**&#x2F;1 如何去除重复的数据  distinct2 字符串连接查询 select ‘员工编号是’ || e.empno from emp e3.支持四则运算   限定查询因为用or的话，有多个需要满足的条件会很麻烦 所以可以使用in来查询   单行函数什么是伪表？字符串之间的连接最好使用 ||因为到了别的数据库中就不兼容concat 不能查到下个星期几的日期?用阿拉伯数字来代替 字符">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qdx5jexia.bkt.clouddn.com/dsq.png">
-<meta property="article:published_time" content="2020-07-24T03:10:00.000Z">
-<meta property="article:modified_time" content="2020-07-25T03:45:44.727Z">
+<meta property="article:published_time" content="2020-07-25T03:23:00.000Z">
+<meta property="article:modified_time" content="2020-07-25T03:24:54.627Z">
 <meta property="article:author" content="dalu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qdx5jexia.bkt.clouddn.com/dsq.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/index.html">
+  <link rel="canonical" href="https://lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E6%B2%A1%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%AD%A6%E4%B9%A0%E4%B8%80%E6%B3%A2Oracle/index.html">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -295,14 +293,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-报表优化之定时器" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-公司没任务，学习一波Oracle" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      报表优化之定时器
+      公司没任务，学习一波Oracle
     </h1>
   
 
@@ -310,24 +308,19 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/Lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/" class="article-date">
-	  <time datetime="2020-07-24T03:10:00.000Z" itemprop="datePublished">2020-07-24</time>
+	<a href="/Lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E6%B2%A1%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%AD%A6%E4%B9%A0%E4%B8%80%E6%B3%A2Oracle/" class="article-date">
+	  <time datetime="2020-07-25T03:23:00.000Z" itemprop="datePublished">2020-07-25</time>
 	</a>
 </span>
         
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/Lu001.github.io/categories/%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1/">公司业务</a>
-  </span>
-
         
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E6%B2%A1%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%AD%A6%E4%B9%A0%E4%B8%80%E6%B3%A2Oracle/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 99(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 378(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -337,13 +330,19 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>业务需求</strong>:有很多条数据查询，性能较差.数据三个月更新一次。<br>实现：通过设置定时器优化。</p>
-<ul>
-<li>触发器设置时间</li>
-<li>工作内容写在Job中</li>
-<li>找到调度器进行对工作进行调度</li>
-<li>sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual<br><img src="http://qdx5jexia.bkt.clouddn.com/dsq.png" alt></li>
-</ul>
+        <p>注释 –  /**/<br>1 如何去除重复的数据  distinct<br>2 字符串连接查询 select ‘员工编号是’ || e.empno from emp e<br>3.支持四则运算  </p>
+<p>限定查询<br>因为用or的话，有多个需要满足的条件会很麻烦 所以可以使用in来查询  </p>
+<p>单行函数<br>什么是伪表？<br><strong>字符串之间的连接</strong>最好使用 ||<br>因为到了别的数据库中就不兼容concat</p>
+<p>不能查到下个星期几的日期?<br>用阿拉伯数字来代替</p>
+<p>字符串转换数字 to_number  to_date   </p>
+<p> –查询每一个员工上级领导<br> select b.ename,a.ename   from emp a,emp b<br> where a.empno = b.mgr;<br>但是其中因为领导mgr中为空，条件匹配不到这条数据，但是我要想显示</p>
+<p>两张表做连接查询的时候，其中一张表要保存全量的数据（不会因为另一张表的数据而被筛选）<br>非全量表的关联 加一个（+）  </p>
+<p>using子句 类似根据该字段将表关联  </p>
+<p>group by 分组 在分组查询的时候，只有对该字段进行分组之后，就好对该字段进行查询<br>后面有的前面一定要有  </p>
+<p>–查询出部门人数大于5的部门<br>select count(<em>) c,d.deptno from dept d , emp e<br>where d.deptno = e.deptno<br>group by d.deptno<br>having count(</em>)&gt;5  </p>
+<p>having 对分组做限制  </p>
+<p>子查询<br>单列子查询 单行子查询 多行子查询</p>
+<p>in关键字性能比较低下 可以使用exists来代替性能很高</p>
 
       
     </div>
@@ -392,12 +391,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/Lu001.github.io/2020/07/24/%E4%B8%80%E4%BA%9B%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%B0%8F%E7%9F%A5%E8%AF%86/" title="一些中间件的小知识"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/Lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E4%BB%BB%E5%8A%A1%EF%BC%9A%E4%B8%80%E4%B8%AAMiniUI%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/" title="公司任务：一个MiniUI界面开发"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/Lu001.github.io/2020/07/23/ss/" title="J2EE容器究竟有什么"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/Lu001.github.io/2020/07/24/AVA-SE/" title="MyBatis是什么鬼？"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

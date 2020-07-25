@@ -17,22 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>报表优化之定时器 | Hexo</title>
-  <meta name="description" content="业务需求:有很多条数据查询，性能较差.数据三个月更新一次。实现：通过设置定时器优化。  触发器设置时间 工作内容写在Job中 找到调度器进行对工作进行调度 sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual">
+  <title>公司任务：一个MiniUI界面开发 | Hexo</title>
+  <meta name="description" content="MiniUI实现表格上下移动的前端实现后台：传入sort a00    mini-treegrid 不可以像 mini-tree一样 实现node节点拖曳排序在mini-treegrid中加入allowDrag&#x3D;”true” allowDrop&#x3D;”true” 我这边不能实现拖曳。是不是只能转成mini-tree？界面拖曳之后，如何访问后台？数据就是rowid 通过rowid排序展示数据，一旦修改之">
 <meta property="og:type" content="article">
-<meta property="og:title" content="报表优化之定时器">
-<meta property="og:url" content="https://lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/index.html">
+<meta property="og:title" content="公司任务：一个MiniUI界面开发">
+<meta property="og:url" content="https://lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E4%BB%BB%E5%8A%A1%EF%BC%9A%E4%B8%80%E4%B8%AAMiniUI%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="业务需求:有很多条数据查询，性能较差.数据三个月更新一次。实现：通过设置定时器优化。  触发器设置时间 工作内容写在Job中 找到调度器进行对工作进行调度 sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual">
+<meta property="og:description" content="MiniUI实现表格上下移动的前端实现后台：传入sort a00    mini-treegrid 不可以像 mini-tree一样 实现node节点拖曳排序在mini-treegrid中加入allowDrag&#x3D;”true” allowDrop&#x3D;”true” 我这边不能实现拖曳。是不是只能转成mini-tree？界面拖曳之后，如何访问后台？数据就是rowid 通过rowid排序展示数据，一旦修改之">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qdx5jexia.bkt.clouddn.com/dsq.png">
-<meta property="article:published_time" content="2020-07-24T03:10:00.000Z">
-<meta property="article:modified_time" content="2020-07-25T03:45:44.727Z">
+<meta property="article:published_time" content="2020-07-25T03:26:00.000Z">
+<meta property="article:modified_time" content="2020-07-25T03:44:31.287Z">
 <meta property="article:author" content="dalu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qdx5jexia.bkt.clouddn.com/dsq.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/index.html">
+  <link rel="canonical" href="https://lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E4%BB%BB%E5%8A%A1%EF%BC%9A%E4%B8%80%E4%B8%AAMiniUI%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/index.html">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -295,14 +293,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-报表优化之定时器" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-公司任务：一个MiniUI界面开发" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      报表优化之定时器
+      公司任务：一个MiniUI界面开发
     </h1>
   
 
@@ -310,8 +308,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/Lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/" class="article-date">
-	  <time datetime="2020-07-24T03:10:00.000Z" itemprop="datePublished">2020-07-24</time>
+	<a href="/Lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E4%BB%BB%E5%8A%A1%EF%BC%9A%E4%B8%80%E4%B8%AAMiniUI%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/" class="article-date">
+	  <time datetime="2020-07-25T03:26:00.000Z" itemprop="datePublished">2020-07-25</time>
 	</a>
 </span>
         
@@ -324,10 +322,10 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/24/%E6%8A%A5%E8%A1%A8%E4%BC%98%E5%8C%96%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E4%BB%BB%E5%8A%A1%EF%BC%9A%E4%B8%80%E4%B8%AAMiniUI%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 99(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 150(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -337,13 +335,12 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><strong>业务需求</strong>:有很多条数据查询，性能较差.数据三个月更新一次。<br>实现：通过设置定时器优化。</p>
-<ul>
-<li>触发器设置时间</li>
-<li>工作内容写在Job中</li>
-<li>找到调度器进行对工作进行调度</li>
-<li>sql语句的优化。利用union all 将多个查询变成一次性查询。横着的利用 select （select a），（select b） from dual<br><img src="http://qdx5jexia.bkt.clouddn.com/dsq.png" alt></li>
-</ul>
+        <h3 id="MiniUI实现表格上下移动的前端实现"><a href="#MiniUI实现表格上下移动的前端实现" class="headerlink" title="MiniUI实现表格上下移动的前端实现"></a>MiniUI实现表格上下移动的前端实现</h3><p>后台：传入sort a00  </p>
+<p> mini-treegrid 不可以像 mini-tree一样 实现node节点拖曳排序<br>在mini-treegrid中加入allowDrag=”true” allowDrop=”true” 我这边不能实现拖曳。<br>是不是只能转成mini-tree？<br>界面拖曳之后，如何访问后台？<br>数据就是rowid 通过rowid排序展示数据，一旦修改之后，sort变化  </p>
+<p>拖曳式想要触发函数<br>onclick和click调用  </p>
+<p>刷新脚本的地方加一个查询按钮  </p>
+<p>做一个查询功能。<br>前台传入数据  </p>
+<p>后台接受并访问数据库  </p>
 
       
     </div>
@@ -392,12 +389,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/Lu001.github.io/2020/07/24/%E4%B8%80%E4%BA%9B%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%B0%8F%E7%9F%A5%E8%AF%86/" title="一些中间件的小知识"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/Lu001.github.io/2020/07/25/%E4%BB%BB%E5%8A%A1%EF%BC%9AExcel%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5%E5%AE%9E%E7%8E%B0/" title="公司任务：Excel批量导入实现"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/Lu001.github.io/2020/07/23/ss/" title="J2EE容器究竟有什么"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/Lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E6%B2%A1%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%AD%A6%E4%B9%A0%E4%B8%80%E6%B3%A2Oracle/" title="公司没任务，学习一波Oracle"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

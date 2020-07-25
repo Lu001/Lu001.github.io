@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>第一次公司做报表，数据库字段咋这么多流水账 | Hexo</title>
+  <meta name="description" content="业务查询中心 交易台账查询存放同业业务的熟悉？什么是同业存放？什么是存放同业？同业：金融机构存放同业：银行 给 金融机构同业存放：金融机构  给 银行   首页 交易台账查询   字段分析存放同业余额？交易单号  经办机构 存放行名称 外部账号金融机构名称 定期还是活期  起始时间 结束时间 期限（结束时间 - 起始时间） 金额（银行存放金额） 利率 币种 折人民币金额 计息天数 剩余天数 应收利">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一次公司做报表，数据库字段咋这么多流水账">
+<meta property="og:url" content="https://lu001.github.io/2020/07/25/%E6%AC%A1%E5%85%AC%E5%8F%B8%E5%81%9A%E6%8A%A5%E8%A1%A8%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%97%E6%AE%B5%E5%92%8B%E8%BF%99%E4%B9%88%E5%A4%9A/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="业务查询中心 交易台账查询存放同业业务的熟悉？什么是同业存放？什么是存放同业？同业：金融机构存放同业：银行 给 金融机构同业存放：金融机构  给 银行   首页 交易台账查询   字段分析存放同业余额？交易单号  经办机构 存放行名称 外部账号金融机构名称 定期还是活期  起始时间 结束时间 期限（结束时间 - 起始时间） 金额（银行存放金额） 利率 币种 折人民币金额 计息天数 剩余天数 应收利">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-25T03:32:00.000Z">
+<meta property="article:modified_time" content="2020-07-25T03:44:13.354Z">
+<meta property="article:author" content="dalu">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://lu001.github.io/2020/07/25/%E6%AC%A1%E5%85%AC%E5%8F%B8%E5%81%9A%E6%8A%A5%E8%A1%A8%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%97%E6%AE%B5%E5%92%8B%E8%BF%99%E4%B9%88%E5%A4%9A/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/Lu001.github.io/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/Lu001" target="_blank">
+          <img class="img-circle img-rotate" src="http://qdx5jexia.bkt.clouddn.com/v2-80c9cc76b4e6dc25b298185ea4673254_r.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Da lu</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Java学习博客</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 中国 ，杭州</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/Lu001.github.io/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/Lu001.github.io/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/Lu001.github.io/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/Lu001.github.io/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/Lu001.github.io/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>努力找工作中</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Lu001.github.io/categories/Java%E4%B8%AD%E7%BA%A7/">Java中级</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/Lu001.github.io/categories/Spring/">Spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/Lu001.github.io/categories/%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1/">公司业务</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/Lu001.github.io/categories/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/Lu001.github.io/categories/%E6%98%A5%E6%8B%9B/">春招</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Lu001.github.io/archives/2020/07/">七月 2020</a><span class="archive-list-count">17</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/Lu001.github.io/2020/07/25/%E5%8F%91%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AC%A1%E7%90%86%E8%A7%A3/" class="title">并发编程初次理解</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-25T03:39:00.000Z" itemprop="datePublished">2020-07-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/Lu001.github.io/2020/07/25/vaWeb%E7%A9%B6%E7%AB%9F%E6%9C%89%E5%95%A5%E4%B8%9C%E8%A5%BF%E9%9D%A2%E8%AF%95/" class="title">JavaWeb究竟有啥东西面试</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-25T03:38:36.000Z" itemprop="datePublished">2020-07-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/Lu001.github.io/categories/%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1/">公司业务</a>
+              </p>
+              <p class="item-title">
+                <a href="/Lu001.github.io/2020/07/25/%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1%E5%AD%A6%E4%B9%A0/" class="title">新利公司业务学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-25T03:36:00.000Z" itemprop="datePublished">2020-07-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/Lu001.github.io/categories/%E6%98%A5%E6%8B%9B/">春招</a>
+              </p>
+              <p class="item-title">
+                <a href="/Lu001.github.io/2020/07/25/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0%EF%BC%8C%E8%8F%9C%E7%9A%84%E4%B8%80%E6%89%B9/" class="title">春招面试复习，菜的一批</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-25T03:35:00.000Z" itemprop="datePublished">2020-07-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/Lu001.github.io/categories/%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1/">公司业务</a>
+              </p>
+              <p class="item-title">
+                <a href="/Lu001.github.io/2020/07/25/%E6%AC%A1%E5%85%AC%E5%8F%B8%E5%81%9A%E6%8A%A5%E8%A1%A8%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%97%E6%AE%B5%E5%92%8B%E8%BF%99%E4%B9%88%E5%A4%9A/" class="title">第一次公司做报表，数据库字段咋这么多流水账</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-07-25T03:32:00.000Z" itemprop="datePublished">2020-07-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-次公司做报表，数据库字段咋这么多" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第一次公司做报表，数据库字段咋这么多流水账
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/Lu001.github.io/2020/07/25/%E6%AC%A1%E5%85%AC%E5%8F%B8%E5%81%9A%E6%8A%A5%E8%A1%A8%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%97%E6%AE%B5%E5%92%8B%E8%BF%99%E4%B9%88%E5%A4%9A/" class="article-date">
+	  <time datetime="2020-07-25T03:32:00.000Z" itemprop="datePublished">2020-07-25</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/Lu001.github.io/categories/%E5%85%AC%E5%8F%B8%E4%B8%9A%E5%8A%A1/">公司业务</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/25/%E6%AC%A1%E5%85%AC%E5%8F%B8%E5%81%9A%E6%8A%A5%E8%A1%A8%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%97%E6%AE%B5%E5%92%8B%E8%BF%99%E4%B9%88%E5%A4%9A/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>业务查询中心 交易台账查询<br>存放同业<br>业务的熟悉？<br>什么是同业存放？什么是存放同业？<br>同业：金融机构<br>存放同业：银行 给 金融机构<br>同业存放：金融机构  给 银行  </p>
+<p>首页 交易台账查询  </p>
+<p>字段分析<br>存放同业<br>余额？<br>交易单号  经办机构 存放行名称 外部账号<br>金融机构名称 定期还是活期  起始时间 结束时间 期限（结束时间 - 起始时间） 金额（银行存放金额） 利率<br> 币种 折人民币金额 计息天数 剩余天数 应收利息 付息方式 是否有开户证书<br>存放同业<br>查询字段  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">select tc.DEAL_NO, tc.INST_ID, tc.PARTY_ID, d.ACC_NO, tc.CCY, tc.AMT, tc.AMT as AMT_TO_CNY, case tc.trdtype when &#39;11901&#39; then &#39;定期&#39; else &#39;活期&#39; end as RC_FLAG, tc.EXPECT_RATE, tc.V_DATE, tc.M_DATE, tc.TERM, tc.INT_FRE, to_date(tc.m_date, &#39;yyyy-mm-dd&#39;)-to_date(&#39;2020-03-16&#39;, &#39;yyyy-mm-dd&#39;) as remain_days, t.settl_amt,t.accrued_tint, E.CUST_FULLNAME AS PARTY_NAME, tdi.DICT_NAME_C as INT_FRE_NAME, I.INST_NAME AS INST_NAME, tdiyes.DICT_NAME_C as is_Print_Acc from trade_common tc</span><br><span class="line"></span><br><span class="line"> LEFT OUTER JOIN (select * from ta_dict_item t where t.dict_id&#x3D;&#39;YesNo&#39;) tdiyes </span><br><span class="line">ON tc.is_Print_Acc &#x3D; tdiyes.dict_key </span><br><span class="line"></span><br><span class="line">inner join (SELECT deal_no,min(SETTL_AMT) as SETTL_AMT,max(ACCRUED_TINT)as ACCRUED_TINT,max(POSTDATE) as POSTDATE </span><br><span class="line"></span><br><span class="line">FROM (select t1.DEAL_NO,t1.SETTL_AMT,t1.ACCRUED_TINT,t1.Postdate from TD_TRD_TPOS t1 </span><br><span class="line">inner join (select deal_no,max(Postdate) as Postdate from TD_TRD_TPOS </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">WHERE 1&#x3D;1 AND POSTDATE &lt;&#x3D; &#39;2020-03-16&#39; group by deal_no) t2 on t1.deal_no&#x3D;t2.deal_no and t1.Postdate&#x3D;t2.</span><br><span class="line">Postdate UNION ALL </span><br><span class="line">select t1.DEAL_NO,t1.SETTL_AMT,t1.ACCRUED_TINT,t1.Postdate from TD_TRD_TPOS_H t1 inner join (select deal_no,max(Postdate) as Postdate from TD_TRD_TPOS_H WHERE 1&#x3D;1 AND POSTDATE &lt;&#x3D; &#39;2020-03-16&#39; group by deal_no) t2 </span><br><span class="line">on t1.deal_no&#x3D;t2.deal_no and t1.Postdate&#x3D;t2.Postdate) </span><br><span class="line">group by deal_no ORDER BY POSTDATE DESC) t on t.deal_no&#x3D;tc.DEAL_NO</span><br><span class="line"></span><br><span class="line">LEFT OUTER JOIN DEPOSITBANK_OUT_ACC d on d.deal_no&#x3D;tc.DEAL_NO</span><br><span class="line"></span><br><span class="line"> LEFT OUTER JOIN TT_CUSTOMER E ON tc.PARTY_ID &#x3D; E.CUST_ID AND E.ACTIVE &#x3D; 1 </span><br><span class="line">LEFT OUTER JOIN TT_INSTITUTION I ON tc.INST_ID &#x3D; I.INST_ID </span><br><span class="line">LEFT OUTER JOIN (select * from ta_dict_item where dict_id&#x3D;&#39;CouponIntFrequently&#39;) tdi </span><br><span class="line">ON tc.INT_FRE &#x3D; tdi.DICT_KEY</span><br><span class="line">条件</span><br><span class="line"> where tc.is_active&#x3D;&#39;1&#39; and tc.trdtype&#x3D;&#39;11901&#39; AND tc.v_date &lt;&#x3D; &#39;2020-03-16&#39; AND &#39;2020-03-16&#39; &lt;&#x3D; tc.m_date AND tc.INST_ID IN ( &#39;4001&#39; ) and t.settl_amt &gt; 0</span><br></pre></td></tr></table></figure>
+
+
+
+<p>同业存放<br>从Sql语句推测<br>查询字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">select vtit.DEAL_NO, ti.inst_name, bra.zhhuzwmc as savbankName, bra.kehuzhao as savbankNo, bra.pngzxhao as orderNo, vtit.ccy, vtit.amt, vtit.amt as antCny, &#39;定期&#39; as due, vtit.ytm, vtit.v_date, vtit.m_date, vtit.term, (to_date(vtit.m_date, &#39;yyyy-mm-dd&#39;) - to_date(&#39;2020-03-16&#39;, &#39;yyyy-mm-dd&#39;)) as LEFT_TERM, tpos.accrued_tint, vtit.int_fre, vtit.deal_no</span><br><span class="line">关联表</span><br><span class="line"> from vt_instrument vtit</span><br><span class="line"> LEFT JOIN ( select * from td_trd_tpos union all select * from td_trd_tpos_h ) tpos </span><br><span class="line">on tpos.deal_no &#x3D; vtit.deal_no </span><br><span class="line"></span><br><span class="line">left join bankdeposit_regular_acc bra </span><br><span class="line">on vtit.deal_no &#x3D; bra.deal_no</span><br><span class="line"></span><br><span class="line">LEFT JOIN tt_institution ti</span><br><span class="line"> on ti.inst_id &#x3D; vtit.BELONG_INST_ID </span><br><span class="line">条件</span><br><span class="line">where vtit.is_active &#x3D; &#39;1&#39; and vtit.approvestatus &#x3D; &#39;22&#39; and vtit.trdtype &#x3D; &#39;12001&#39; and tpos.postdate &#x3D; &#39;2020-03-16&#39; and to_date(&#39;2020-03-16&#39;, &#39;yyyy-mm-dd&#39;) &gt;&#x3D; to_date(vtit.v_date, &#39;yyyy-mm-dd&#39;) and to_date(vtit.m_date, &#39;yyyy-mm-dd&#39;) &gt; to_date(&#39;2020-03-16&#39;, &#39;yyyy-mm-dd&#39;) AND vtit.BELONG_INST_ID IN ( &#39;4001&#39; ) order by vtit.v_date asc</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT count(0) FROM vt_instrument M LEFT JOIN TT_CUSTOMER CP ON CP.CUST_ID &#x3D; M.C_NO AND CP.ACTIVE &#x3D; 1 LEFT JOIN TA_USER TU ON TU.USER_ID &#x3D; M.SPONSOR LEFT JOIN tt_institution ti ON ti.inst_id &#x3D; m.BELONG_INST_ID LEFT JOIN TD_TRD_TPOS td ON td.deal_no &#x3D; M.deal_no WHERE 1 &#x3D; 1 AND M.SPON_INST IN (&#39;000000&#39;, &#39;500001&#39;, &#39;50000102&#39;, &#39;5000010201&#39;, &#39;5000010202&#39;, &#39;50000101&#39;, &#39;5000010101&#39;) AND (M.TRDTYPE IN (&#39;11901&#39;, &#39;12101&#39;))</span><br></pre></td></tr></table></figure>
+<p>查询字段  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">TRADE_COMMON.DEAL_NO,</span><br><span class="line">审批单编号 自动生成（交易编号）;</span><br><span class="line">                        (&#39;存放同业&#39;),</span><br><span class="line">(&#39;存放同业&#39;);</span><br><span class="line">                        1 AS 笔数,</span><br><span class="line">n;</span><br><span class="line">                        TRADE_COMMON.V_DATE,</span><br><span class="line">非标-起息日期;</span><br><span class="line">                        TRADE_COMMON.M_DATE,</span><br><span class="line">非标-到期日期;</span><br><span class="line">                        TT_CUSTOMER.CUST_FULLNAME,</span><br><span class="line">客户全称;</span><br><span class="line">                        TRADE_COMMON.TRANSACTION_AMT,</span><br><span class="line">交易金额;</span><br><span class="line">                        TRADE_COMMON.ACTURAL_RATE * 100,</span><br><span class="line">非标-实际利率;</span><br><span class="line">                        TRADE_COMMON.TERM,</span><br><span class="line">非标-计息天数;</span><br><span class="line">                        --tac_balance.prft_ir,</span><br><span class="line">非标-到期利息（元）;</span><br><span class="line">                        (SELECT SUM(TD_CASHFLOW_INTEREST.INTEREST_AMT) FROM TD_CASHFLOW_INTEREST WHERE TD_CASHFLOW_INTEREST.I_CODE &#x3D; TRADE_COMMON.DEAL_NO),</span><br><span class="line">用户姓名;</span><br><span class="line">                        TA_USER.USER_NAME,</span><br><span class="line">合同协议号;</span><br><span class="line">                        TT_TRD_TRADE.CONTRACT_NO,</span><br><span class="line">                        &#39;10110201|存放境内银行业定期款项&#39;</span><br><span class="line">(TBK_SUBJECT_BALANCE.Subj_Name||&#39;&#x2F;&#39;||TBK_SUBJECT_BALANCE.Subj_Code)</span><br><span class="line"></span><br><span class="line">查询关联表</span><br><span class="line">表间关系 </span><br><span class="line"> 基础信息---&gt;交易表-非标准化债权;基础信息---&gt;交易表-非标准化债权;基础信息---&gt;交易表-非标准化债权;基础信息---&gt;交易表-非标准化债权@ LEFT JOIN;LEFT JOIN;LEFT JOIN;LEFT JOIN@ 基础信息---&gt;客户基本信息;基础信息---&gt;柜员表;基础信息---&gt;科目余额明细表;基础信息---&gt;交易核实数据表</span><br><span class="line">查询条件 无查询条件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM (SELECT</span><br><span class="line">              tmp_page.*</span><br><span class="line">      FROM (SELECT</span><br><span class="line">                    (CASE M.C_NO</span><br><span class="line">                     WHEN &#39;4001&#39;</span><br><span class="line">                             THEN &#39;金融同业部&#39;</span><br><span class="line">                     ELSE CP.CUST_FULLNAME END) AS 单位,</span><br><span class="line">                    M.p_class                   AS 业务类型,</span><br><span class="line">                    M.v_date                    AS 起存日,</span><br><span class="line">                    M.m_date                    AS 到期日,</span><br><span class="line">                    M.TERM                      AS 期限,</span><br><span class="line">                    M.actural_rate              AS 利率,</span><br><span class="line">                    M.amt                       AS 金额</span><br><span class="line">            FROM vt_instrument M</span><br><span class="line">                    LEFT JOIN TT_CUSTOMER CP ON CP.CUST_ID &#x3D; M.C_NO AND CP.ACTIVE &#x3D; 1</span><br><span class="line">            ORDER BY LAST_UPDATE DESC, DEAL_NO DESC) tmp_page</span><br><span class="line">      WHERE rownum &lt;&#x3D; 5)</span><br><span class="line">WHERE rownum &gt; 0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SELECT product_type, COUNT(*)</span><br><span class="line">    FROM Product</span><br><span class="line">  GROUP BY product_type</span><br><span class="line"> HAVING COUNT(*) &#x3D; 2;</span><br></pre></td></tr></table></figure>
+
+<h3 id="外连接和内连接有什么区别？"><a href="#外连接和内连接有什么区别？" class="headerlink" title="外连接和内连接有什么区别？"></a>外连接和内连接有什么区别？</h3><p>外连接能够查询出不符合条件的数据（分为左，右外连接），内连接只能查询出符合条件的数据<br>多表查询优化</p>
+<h3 id="group-by的作用是什么？"><a href="#group-by的作用是什么？" class="headerlink" title="group by的作用是什么？"></a>group by的作用是什么？</h3><p>根据数据集进行分组，按照各个组进行统计</p>
+<p>看下报表配置的文档 参考文件里看具体格式<br>做一张存放同业</p>
+<p>通过报表工具，根据用户的查询需求从数据库中读取相应数据 （查询操作）<br>首先 ， 查看用户数据，通过报表中的报表格式sheet中找到</p>
+<p>根据这个名称，在公式说明中的 公式名称 列中 ，找到数据子集</p>
+<p>根据这个数据子集，我们通过打开sub_data_model文件中数据子集C中，定位到G31_债券投资_按类别_国债 定位 到实体名 这个列中即为sql语句</p>
+<p>一个查询的sql语句 由查询的字段和查询条件构成以及来源的表<br>表：TAC_BALANCE     TT_MKT_BOND<br>NVL(SUM( TAC_BALANCE.REAL_CP ),0) /10000 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">两张表：</span><br><span class="line">TAC_BALANCE </span><br><span class="line">TT_MKT_BOND </span><br><span class="line">通过id两张表关联： </span><br><span class="line">TT_MKT_BOND.I_CODE  &#x3D;  TAC_BALANCE.I_CODE</span><br><span class="line">参数：TAC_BALANCE.BEGIN_DATE</span><br><span class="line">  	   TT_MKT_BOND.P_CLASS</span><br><span class="line">    TAC_BALANCE.A_TYPE</span><br><span class="line">    TAC_BALANCE.INV_TYPE</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">( SELECT  NVL(SUM( TAC_BALANCE.REAL_CP ),0) &#x2F;10000 </span><br><span class="line"> FROM TAC_BALANCE TAC_BALANCE  LEFT JOIN  TT_MKT_BOND TT_MKT_BOND   </span><br><span class="line">ON </span><br><span class="line"> TT_MKT_BOND.I_CODE  &#x3D;  TAC_BALANCE.I_CODE</span><br><span class="line"> WHERE </span><br><span class="line">TAC_BALANCE.BEGIN_DATE  &#x3D;贷款计息参数---&gt;报表日期 &#x2F;&#x2F;为用户输入参数</span><br><span class="line">AND TT_MKT_BOND.P_CLASS  &#x3D;&#39;国债&#39; </span><br><span class="line">AND TAC_BALANCE.A_TYPE  &#x3D;(&#39;CM_SP_BND&#39;) </span><br><span class="line">AND TAC_BALANCE.INV_TYPE IS NOT NULL)</span><br></pre></td></tr></table></figure>
+
+<p>既然要自己做一个报表，为了解耦分开两张excel表进行处理<br>首先我们会想用户需要什么样的数据进行展示<br>程序员该用什么样的sql语句向数据库进行查询<br>这两张excel表通过子集名称进行连接  </p>
+<h3 id="那么如何更好的阅读sql语句呢？"><a href="#那么如何更好的阅读sql语句呢？" class="headerlink" title="那么如何更好的阅读sql语句呢？"></a>那么如何更好的阅读sql语句呢？</h3><p>重点关注 查询字段 查询条件 数据来源表  </p>
+<p>我要展示国债的分类信息<br>sum字段是干嘛的？就是两个单元格相加</p>
+<p>输入类型和数据类型有什么区别？<br>这个报表格式：写上展示的字段  子集名称</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>报表分类<br>一条sql语句查询</p>
+<p>从用户角度出发需要阅读一张报表，用户报表<br>从程序员角度出发需要阅读一张报表，程序员报表<br>用户报表中，主要功能是展示字段<br>程序员报表中，主要写出sql语句进行查询</p>
+<p>这两张表通风数据子集进行关联<br>用户表中的列名<br>程序员表中的列名 条件值 ：用户需要输入的参数<br>还需有一张 参数的excel表 和表没有关系 是用户输入信息的描述+字段<br>一张  数据表字段解析</p>
+<p>贷款计息参数—-&gt;报表日期<br>这个是sql用户输入的条件，这里前面的 贷款计息 是表，后面 报表日期 是字段<br>是这样么<br>不是这样的，因为这里对应的是用户看的excel表 所以前者是sheet名称，后者是输入的参数的名称，这是为了给用户看的。<br>这里的sheet名称对应程序员表</p>
+<p>开始写报表<br>首先，阅读系统报表需求<br>要写四张excel表<br>程序员表  </p>
+<ul>
+<li>数据库来源<br>博哥我们要操作的数据库是这个么  </li>
+<li>找到对应的数据库中的表  </li>
+<li>填写用户输入信息的条件表  </li>
+<li>使用sql语句的表</li>
+</ul>
+<p>用户表</p>
+<ul>
+<li>根据sql显示查询的字段</li>
+<li>查询的条件</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Lu001" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="http://qdx5jexia.bkt.clouddn.com/v2-80c9cc76b4e6dc25b298185ea4673254_r.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Lu001" target="_blank"><span class="text-dark">Da lu</span><small class="ml-1x">Java学习博客</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/Lu001.github.io/2020/07/25/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0%EF%BC%8C%E8%8F%9C%E7%9A%84%E4%B8%80%E6%89%B9/" title="春招面试复习，菜的一批"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/Lu001.github.io/2020/07/25/%E4%BB%BB%E5%8A%A1%EF%BC%9AExcel%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5%E5%AE%9E%E7%8E%B0/" title="公司任务：Excel批量导入实现"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/Lu001.github.io/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/Lu001.github.io/js/plugin.min.js"></script>
+
+
+<script src="/Lu001.github.io/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/Lu001.github.io/',
+        CONTENT_URL: '/Lu001.github.io/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/Lu001.github.io/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+</html>
