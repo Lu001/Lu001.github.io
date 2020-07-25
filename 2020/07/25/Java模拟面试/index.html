@@ -17,20 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Spring全家桶 | Hexo</title>
-  <meta name="description" content="SpringBoot自动装配原理？自动配置就是Spring可以通过注解将类加载到IOC容器中。实现原理：项目启动时，扫描入口类所在包下的所有子包的类。通过注解获取spring.factories中扫描到的类路径，利用Java的反射机制，创建类对象并加载到IOC容器中，实现了SpringBoot的自动配置。  Spring Aop和Ioc原理？Spring有两大核心功能Aop IocAop面向切面编">
+  <title>Java模拟面试 我表示很慌张 | Hexo</title>
+  <meta name="description" content="跟我聊聊JVM？JVM功能相当于将Java程序翻译给操作系统，所以Java是跨平台的。它整个体系分为栈本地方法栈（私有）堆程序计数器方法区（共有）。举个例子，我们创建一个Student类，经过编译之后变成class文件。然后，经过类加载器变成class对象，方法区中存放所有类信息和静态变量，栈中存放引用对象变量等信息，堆中存放对象的实例。这其中，为什么静态变量和类信息放到一起？因为在jdk1.8之">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring全家桶">
-<meta property="og:url" content="https://lu001.github.io/2020/07/23/Springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F/index.html">
+<meta property="og:title" content="Java模拟面试 我表示很慌张">
+<meta property="og:url" content="https://lu001.github.io/2020/07/25/Java%E6%A8%A1%E6%8B%9F%E9%9D%A2%E8%AF%95/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="SpringBoot自动装配原理？自动配置就是Spring可以通过注解将类加载到IOC容器中。实现原理：项目启动时，扫描入口类所在包下的所有子包的类。通过注解获取spring.factories中扫描到的类路径，利用Java的反射机制，创建类对象并加载到IOC容器中，实现了SpringBoot的自动配置。  Spring Aop和Ioc原理？Spring有两大核心功能Aop IocAop面向切面编">
+<meta property="og:description" content="跟我聊聊JVM？JVM功能相当于将Java程序翻译给操作系统，所以Java是跨平台的。它整个体系分为栈本地方法栈（私有）堆程序计数器方法区（共有）。举个例子，我们创建一个Student类，经过编译之后变成class文件。然后，经过类加载器变成class对象，方法区中存放所有类信息和静态变量，栈中存放引用对象变量等信息，堆中存放对象的实例。这其中，为什么静态变量和类信息放到一起？因为在jdk1.8之">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-23T06:50:00.000Z">
-<meta property="article:modified_time" content="2020-07-25T03:45:04.051Z">
+<meta property="article:published_time" content="2020-07-25T07:52:00.000Z">
+<meta property="article:modified_time" content="2020-07-25T15:28:42.330Z">
 <meta property="article:author" content="dalu">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://lu001.github.io/2020/07/23/Springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F/index.html">
+  <link rel="canonical" href="https://lu001.github.io/2020/07/25/Java%E6%A8%A1%E6%8B%9F%E9%9D%A2%E8%AF%95/index.html">
   
     <link rel="alternate" href="/atom.xml" title="个人博客" type="application/atom+xml">
   
@@ -293,14 +293,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Springboot自动配置的原理？" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Java模拟面试" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Spring全家桶
+      Java模拟面试 我表示很慌张
     </h1>
   
 
@@ -308,38 +308,39 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/Lu001.github.io/2020/07/23/Springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F/" class="article-date">
-	  <time datetime="2020-07-23T06:50:00.000Z" itemprop="datePublished">2020-07-23</time>
+	<a href="/Lu001.github.io/2020/07/25/Java%E6%A8%A1%E6%8B%9F%E9%9D%A2%E8%AF%95/" class="article-date">
+	  <time datetime="2020-07-25T07:52:00.000Z" itemprop="datePublished">2020-07-25</time>
 	</a>
 </span>
         
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/Lu001.github.io/categories/Spring/">Spring</a>
-  </span>
-
         
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/23/Springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Lu001.github.io/2020/07/25/Java%E6%A8%A1%E6%8B%9F%E9%9D%A2%E8%AF%95/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 692(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="SpringBoot自动装配原理？"><a href="#SpringBoot自动装配原理？" class="headerlink" title="SpringBoot自动装配原理？"></a>SpringBoot自动装配原理？</h2><p>自动配置就是Spring可以通过注解将类加载到IOC容器中。<br><strong>实现原理</strong>：项目启动时，扫描入口类所在包下的所有子包的类。<br>通过注解获取spring.factories中扫描到的类路径，利用Java的反射机制，<br>创建类对象并加载到IOC容器中，实现了SpringBoot的自动配置。 </p>
-<h2 id="Spring-Aop和Ioc原理？"><a href="#Spring-Aop和Ioc原理？" class="headerlink" title="Spring Aop和Ioc原理？"></a>Spring Aop和Ioc原理？</h2><p>Spring有两大核心功能Aop Ioc<br>Aop面向切面编程，主要功能是对方法进行增强。<br><strong>实际例子</strong>：例如，实现打印日志功能就是利用了Aop。实现原理利用了Spring的反射机制通过实现方法的相同接口动态生成代理类（jdk动态代理），代理类调用实现类方法，并在代理类中打印日志。<br>使用利用注解或者配置文件的方式，通过找到切面（对应辅助性业务）。然后对切点进行注解（对应加表示对类中所有方法）再通过配置文件找到这两个类进行扫描，最后进行切面操作。<br>IOC控制反转，主要功能是创建对象时，交给Spring创建对象。DI的作用就是直接拿到对象的属性，直接使用即可。实现原理就是通过Spring的自动装配，对每个类生成bean的Id，当我们要使用bean实例化的对象时，只需要通过调用beanId即可。</p>
-<h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><p>对web层进行MVC开发的解耦操作</p>
-<h2 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h2><p>Mybatis就是简单封装了jdbc的一个框架。<br>只需要自己写sql语句就能对数据库进行操作实现原理，首先通过配置文件找到相应的数据库，然后根据sql语句对数据库进行操作，接着把返回的结果封装在对象中，最后返回该对象。<br>配置文件的方式，其中将结果封装的操作出现一对多或者多对一时，要通过resultMap对他进行封装</p>
-<h2 id="SSM"><a href="#SSM" class="headerlink" title="SSM"></a>SSM</h2><p>1.客户端提供请求，由tomcat进行处理，tomcat根据web.xml的配置信息拦截提供的请求交给DispatcherServlet处理。<br>2.DisparcherServlet根据SpringMVC的配置，将请求交给相应的Controller类进行处理。所以需要对这个类进行实例化<br>3.因为实例化的时候注入了serviceImpl类（因为自动装配实现了service接口的实例），serviceimpl又注入了CategoryMapper<br>4.根据Application.xml的配置信息，将Mapper和xml文件关联起来。这样拿到了实例化好的CategoryController，并调用list方法。 5.在list方法中，访问service类，并获取数据，并把数据封装起来，由服务端跳转到前端 6.前端用模板渲染的方式显示数据</p>
+        <p>跟我聊聊JVM？<br>JVM功能相当于将Java程序翻译给操作系统，所以Java是跨平台的。<br>它整个体系分为栈本地方法栈（私有）堆程序计数器方法区（共有）。<br>举个例子，我们创建一个Student类，经过编译之后变成class文件。然后，经过类加载器变成class对象，方法区中存放所有类信息和静态变量，栈中存放引用对象变量等信息，堆中存放对象的实例。<br>这其中，为什么静态变量和类信息放到一起？因为在jdk1.8之前，堆根据垃圾回收的情况分成年轻代 老年代和永久代。永久代意味着不会被垃圾回收。然而，因为class对象是动态加载的，不好控制永久代的大小。所以，jdk1.8之后把这永久代这一块物理空间存放到非jvm内存中，叫做元空间。<br>垃圾收集算法有哪些？<br>复制算法：将堆年轻代分成Eden from to区，第一次垃圾回收后，幸存的都往to  区跑，to区变from区。对象存活率高的话，复制效率低下。标记-清除：第一次清  理，根据可达性分析将不可达对象标记，下次清理。产生大量内存碎片。<br>标记-清除-整理算法，在标记清除基础上，对对象进行整理，减少其内存碎片。<br>CMS基于标记清除算法<br>G1将所以垃圾分成大致Regin块，预计块中垃圾比较多的进行清理  </p>
+<p>Spring Aop Ioc?<br>Ioc控制翻转将创建对象的控制权交给Spring容器<br>具体先扫描包，在配置文件中读取类的全路径，通过反射创建class对象并加载到IOC容器中。<br>Aop主要是将辅助业务和主业务编织在一起，例如日志功能的实现。具体通过动态代理，对主业务方法的增强。可以使用注解的方式，对辅助性业务类进行实现，并指定要代理的对象路径。<br>SpringMVC流程？<br>通过dispatchServlet拦截所有请求，请求通过控制器层连接视图层和模型层，通过模型层提供的数据显示到视图上面。<br>MyBatis？<br>MyBatis简单实现了JDBC的框架，优秀的持久层框架。其中，MVC中的Dao层就是面向操作数据库的半自动化的ORM持久化层。JPA是自动化的ORM。<br>xml文件对sql语句灵活的操作。其中，返回类型可以由ResultMap进行构建，  property表示java类属性名 column表示数据库列表名。<br>进行多对一关联的话要使用associate javaType表示关联的一。<br>一对多的话要用collection ofType因为返回多的是集合。<br>动态代理和静态代理有什么区别？<br>代理主要对方法的增强。实现就是委托类实现相同的接口。因此静态代理接口如果添加了方法，所有代理类也要添加，增大了维护的难度。为了解决它我们可以使用动态代理，用一个代理类就可以实现多个委托类的代理（创建一个代理机构）。newProxyInstance动态实现委托类相同接口的实现类，调用invoke（）方法进行转发实现调用方法的增强。（JDK动态代理）<br>单例模式？<br>饿汉和懒汉。饿汉是刚开始加载的时候就创建。懒汉是调用的时候进行创建。<br>其中，懒汉是不安全的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">    private Singleton() &#123;&#125;  &#x2F;&#x2F;私有构造函数</span><br><span class="line">    private static Singleton instance &#x3D; null;  &#x2F;&#x2F;单例对象</span><br><span class="line">    &#x2F;&#x2F;静态工厂方法</span><br><span class="line">    public static Singleton getInstance() &#123;</span><br><span class="line">        if (instance &#x3D;&#x3D; null) &#123;</span><br><span class="line">            instance &#x3D; new Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        return instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>线程不安全。双重检测机制 防止ab都进入判断前构建两次。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">    private Singleton() &#123;&#125;  &#x2F;&#x2F;私有构造函数</span><br><span class="line">    private volatile static Singleton instance &#x3D; null;  &#x2F;&#x2F;单例对象</span><br><span class="line">    &#x2F;&#x2F;静态工厂方法</span><br><span class="line">    public static Singleton getInstance() &#123;</span><br><span class="line">          if (instance &#x3D;&#x3D; null) &#123;      &#x2F;&#x2F;双重检测机制</span><br><span class="line">         synchronized (Singleton.class)&#123;  &#x2F;&#x2F;同步锁</span><br><span class="line">           if (instance &#x3D;&#x3D; null) &#123;     &#x2F;&#x2F;双重检测机制</span><br><span class="line">             instance &#x3D; new Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">             &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          return instance;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>WebSocket 前端主动监听服务端消息，实时的更新数据。<br>Http协议和Https协议？<br>服务端通过向第三方平台获取证书，构造公钥发送给客户端，客户端接收公钥对私钥进行加密。发送给服务端，服务端利用公钥进行解密。保证了安全。<br>Shiro执行工作原理？<br>Shiro主要有两大功能，认证和授权<br>前端先访问，Shiro认证通过之后返回一个SessionId。下次前端再进行访问的时候，头信息带有sessionId，根据sessionId返回授权的信息。<br>后端，Shiro构造安全数据进行认证，主要通过MD5和盐保证数据安全性，再通过Shiro的session将信息存入redis中。下一次登录时，先看有没有sessionId,有的话根据sessionId获取登录的用户信息。<br>Nginx<br>负载均衡，可以通过部署两个Tomcat在Nginx上进行反向代理，其中，Nginx处理静态资源相比于Tomcat会比较快。但是如何保证其Session一致性呢？<br>定时器怎么理解？</p>
+<ul>
+<li>触发器设置时间</li>
+<li>工作内容写在Job中</li>
+<li>找到调度器进行对工作进行调度<br>什么是HashMap？<br>键值对的形式存在，查找数据比较快的一种数据结构。底层是数组加（链表和红黑树）<br>快速排序和归并排序。</li>
+</ul>
 
       
     </div>
@@ -387,13 +388,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/Lu001.github.io/2020/07/23/JAVA%E5%9F%BA%E7%A1%80/" title="集合 JVM其实也很简单"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/Lu001.github.io/2020/07/21/Java%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" title="Java核心问题总结"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/Lu001.github.io/2020/07/25/%E5%8F%91%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AC%A1%E7%90%86%E8%A7%A3/" title="并发编程初次理解"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
